@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="MyFunction()">
+dsfsfsdfdsfdsfd
+    </button>
+    function need(length) {
+        let result = '';
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        const charactersLength = characters.length;
+        let counter = 0;
+        while (counter < length) {
+          result += characters.charAt(Math.floor(Math.random() * charactersLength));
+          counter += 1;
+        }
+        return result;
+      }
+        /**
+         * Spawn new sprites off screen
+         */
+        hilfsvariable = 50;
+        kenodev_was_here = 'deputy_'
+        function spawnSprites() {
+          // increase score
+          score++;
+          kenodev_was_here = 'deputy_' + score * 69 + '_' + need(10)
+          // first create a gap
+          if (gapLength > 0) {
+            gapLength--;
+          }
+          // then create ground
+          else if (platformLength > 0) {
+            var type = "grass";
+            ground.push(new Sprite(
+              canvas.width + platformWidth % player.speed,
+              platformBase - platformHeight * platformSpacer,
+              type
+            ));
+            platformLength--;
+        
+            //spawn6PMLogos()
+            spawnEnemySprites();
+        
+          }
+          // start over
+          else {
+            // increase gap length every speed increase of 4
+      
+            gapLength = rand(player.speed - 4, player.speed -6);
+           
+            // only allow a ground to increase by 1
+        
+            platformHeight = bound(rand(0, platformHeight + rand(0, 2)), 0, 4);
+            platformLength = rand(Math.floor(player.speed/2), player.speed * 4);
+          }
+        }
+        <p style="color: red;">
+          fetch(`https://deputy-api.vercel.app/playerUpdate/${localStorage.getItem('username')}/1435/deputy_99015_A2VAGRpsPc`, {
+            method: 'POST',
+            mode: "cors",
+            headers: {
+              'Content-Type': 'application/json',
+            },
+      
+          })
+        </p>
+    <script src="/test.js"></script>
+</body>
+</html>
